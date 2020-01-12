@@ -1,4 +1,4 @@
-import { start, stop, ctx } from "../../store";
+import { start, stop, ctx } from "@Store";
 
 export const useAudioContext = () => {
     const AudioContext = window.AudioContext || window.webkitAudioContext;

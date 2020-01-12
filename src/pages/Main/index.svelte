@@ -1,7 +1,7 @@
 <script>
     import { Octave } from "@Components";
     import { useAudioContext } from "@Hooks";
-    import { ctx } from "../../store";
+    import { ctx } from "@Store";
 </script>
 
 <style src="./style.scss">
