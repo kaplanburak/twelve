@@ -13,9 +13,11 @@ module.exports = {
     resolve: {
         alias: {
             svelte: path.resolve("node_modules", "svelte"),
-            "@Pages": path.resolve(__dirname, "src/Pages/"),
-            "@Components": path.resolve(__dirname, "src/Components/"),
-            "@Hooks": path.resolve(__dirname, "src/Hooks/"),
+            "@Pages": path.resolve(__dirname, "src/pages/"),
+            "@Components": path.resolve(__dirname, "src/components/"),
+            "@Hooks": path.resolve(__dirname, "src/hooks/"),
+            "@Helpers": path.resolve(__dirname, "src/helpers/"),
+            "@Store": path.resolve(__dirname, "src/store/"),
         },
         extensions: [".mjs", ".js", ".svelte"],
         mainFields: ["svelte", "browser", "module", "main"],
