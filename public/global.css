@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Slab:500&display=swap");
+
 html,
 body {
     position: relative;
@@ -14,22 +16,27 @@ div {
 }
 
 body {
-    color: #333;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    font-family: "Roboto Slab", serif;
+    color: navajowhite;
+
+    --green: rgba(38, 144, 67);
+    --green-low: rgba(38, 144, 67, 0.7);
+
+    --blue: rgba(13, 74, 195);
+    --blue-low: rgba(13, 74, 195, 0.7);
 }
 
 a {
-    color: rgb(0, 100, 200);
+    color: white;
     text-decoration: none;
 }
 
 a:hover {
-    text-decoration: underline;
+    font-weight: 700;
 }
 
 a:visited {
-    color: rgb(0, 80, 160);
+    color: white;
 }
 
 label {
@@ -61,6 +68,10 @@ button {
     color: #333;
     background-color: #f4f4f4;
     outline: none;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 button:disabled {
