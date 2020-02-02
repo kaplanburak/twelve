@@ -18,6 +18,8 @@ export const AudioHelper = {
         // start playing freq[1]
         // ...
 
+        // TODO complete this function
+
         console.log("playSequence ", freqs);
 
         // freqs.forEach((freq, i) => {
