@@ -1,21 +1,28 @@
 <script>
     import { NoteHelper } from "@Helpers";
-    import { Interval } from "./components";
-    import { ctx } from "@Store";
-
-    const notes = NoteHelper.notes;
-    const keys = Object.keys(notes);
+    import { ctx, currentTwelve } from "@Store";
 </script>
 
-<style src="./style.scss">
-
+<style lang="scss">
+    @import "./style.scss";
 </style>
 
-<div class="octave">
-    {#if $ctx}
-        {#each keys as key}
-            <Interval {key} freq={notes[key][4]} />
-        {/each}
-        <Interval key="C" freq={notes.C[5]} />
-    {/if}
+<div class="base">
+    <div class="base__line" />
+    <div class="octave">
+        <div class="octave__range">
+            {#if $ctx}
+                {#each $currentTwelve as tone, index}
+                    <div
+                        class="note {(index === 0 || index === 12) && 'octave-note'}
+                        {!tone.isOpen && 'disabled'}">
+                        <div class="note__label">
+                            <div class="note__label__freq">{tone.freq}Hz</div>
+                            <div class="note__label__key">{tone.key}</div>
+                        </div>
+                    </div>
+                {/each}
+            {/if}
+        </div>
+    </div>
 </div>

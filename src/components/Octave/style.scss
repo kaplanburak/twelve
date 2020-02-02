@@ -1,4 +1,77 @@
-.octave {
-    color: white;
+.base {
+    width: 100%;
+    height: 200px;
+    position: relative;
     display: flex;
+    align-items: center;
+
+    &__line {
+        height: 4px;
+        width: 100%;
+        background-color: #fff;
+    }
+}
+
+.octave {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 12px;
+
+    &__range {
+        width: 700px;
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+.note {
+    width: 6px;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 8px;
+    box-sizing: content-box;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &__label {
+        position: absolute;
+        width: 36px;
+        bottom: -50px;
+        left: -16px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        &__key {
+            font-size: 18px;
+        }
+
+        &__freq {
+            font-size: 11px;
+            color: var(--green-low);
+        }
+    }
+}
+
+.disabled {
+    opacity: 0.1;
+}
+
+.octave-note {
+    border: 4px solid var(--green-low);
+}
+
+.active {
+    border: 4px solid var(--blue-low);
 }
