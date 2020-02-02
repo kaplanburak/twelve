@@ -1,4 +1,4 @@
-import { start, stop, ctx } from "@Store";
+import { startPlaying, stopPlaying, ctx } from "@Store";
 
 export const useAudioContext = () => {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -25,6 +25,6 @@ export const useAudioContext = () => {
         gainNode.gain.value = 0;
     };
 
-    start.set(gainOn);
-    stop.set(gainOff);
+    startPlaying.set(gainOn);
+    stopPlaying.set(gainOff);
 };
