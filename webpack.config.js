@@ -18,6 +18,7 @@ module.exports = {
             "@Hooks": path.resolve(__dirname, "src/hooks/"),
             "@Helpers": path.resolve(__dirname, "src/helpers/"),
             "@Store": path.resolve(__dirname, "src/store/"),
+            "@Icons": path.resolve(__dirname, "src/static/icons"),
         },
         extensions: [".mjs", ".js", ".svelte"],
         mainFields: ["svelte", "browser", "module", "main"],
@@ -49,6 +50,25 @@ module.exports = {
                      * */
                     prod ? MiniCssExtractPlugin.loader : "style-loader",
                     "css-loader",
+                ],
+            },
+            {
+                test: /\.svg$/,
+                use: [
+                    {
+                        loader: "svg-inline-loader",
+                        options: {
+                            removeSVGTagAttrs: true,
+                        },
+                    },
+                ],
+            },
+            {
+                test: /\.(png|jpe?g|gif|mp4|ttf)$/,
+                use: [
+                    {
+                        loader: "file-loader",
+                    },
                 ],
             },
         ],
