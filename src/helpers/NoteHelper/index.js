@@ -22,9 +22,11 @@ export const NoteHelper = {
         ],
     },
     getTwelveNotes: (tonic, tonicPitch, scale) => {
-        const notes = NoteHelper.notes;
-        const keys = Object.keys(notes);
+        const keys = Object.keys(NoteHelper.notes);
         const indexOfTonic = keys.indexOf(tonic);
+
+        const keysHead = keys.slice(indexOfTonic, keys.length);
+        const keysTail = keys.slice(0, indexOfTonic);
 
         const mapKeys = (keys, pitch) => {
             return keys.map(key => {
@@ -38,15 +40,10 @@ export const NoteHelper = {
             });
         };
 
-        const keysHead = keys.slice(indexOfTonic, keys.length);
         const notesHead = mapKeys(keysHead, tonicPitch);
-
-        const keysTail = keys.slice(0, indexOfTonic);
         const notesTail = mapKeys([...keysTail, tonic], tonicPitch + 1);
 
         let twelveNotes = [...notesHead, ...notesTail];
-
-        console.log("scale", scale);
 
         if (scale.length) {
             twelveNotes = twelveNotes.map((note, i) => {
