@@ -19,10 +19,10 @@ body {
     font-family: "Roboto Slab", serif;
     color: navajowhite;
 
-    --green: rgba(38, 144, 67);
+    --green: rgba(38, 144, 67); /* #269042 */
     --green-low: rgba(38, 144, 67, 0.7);
 
-    --blue: rgba(13, 74, 195);
+    --blue: rgba(13, 74, 195); /* #0d4ac3 */
     --blue-low: rgba(13, 74, 195, 0.7);
 }
 

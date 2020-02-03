@@ -19,4 +19,9 @@
         height: 40px;
         cursor: pointer;
     }
+
+    .disabled {
+        cursor: pointer;
+        opacity: 0.3;
+    }
 }

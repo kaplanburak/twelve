@@ -1,4 +1,4 @@
-import { startPlaying, stopPlaying, ctx } from "@Store";
+import { startPlaying, stopPlaying, playingFreq, ctx } from "@Store";
 
 export const useAudioContext = () => {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -17,11 +17,13 @@ export const useAudioContext = () => {
     gainNode.connect(audioCtx.destination);
 
     const gainOn = freq => {
+        playingFreq.set(freq);
         oscillatorNode.frequency.value = freq;
         gainNode.gain.setTargetAtTime(1, audioCtx.currentTime, 0.01);
     };
 
     const gainOff = () => {
+        playingFreq.set(0);
         gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.015);
     };
 

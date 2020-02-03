@@ -9,6 +9,8 @@
         currentKey,
         currentTwelve,
         pitchRange,
+        playingSequence,
+        playingFreq,
     } from "@Store";
 
     const scales = NoteHelper.scales.diatonic;
@@ -80,7 +82,9 @@
                 <option value={scales.indexOf(scale)}>{scale.name}</option>
             {/each}
         </select>
-        <div class="page__icon-wrapper" on:click={playSelectedScale}>
+        <div
+            class="page__icon-wrapper {(!$selectedScale.length || $playingSequence || $playingFreq) && 'disabled'}"
+            on:click={() => !$selectedScale.length || $playingSequence || $playingFreq || playSelectedScale()}>
             {@html PlayIcon}
         </div>
     </div>
