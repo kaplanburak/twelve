@@ -18,11 +18,11 @@ export const useAudioContext = () => {
 
     const gainOn = freq => {
         oscillatorNode.frequency.value = freq;
-        gainNode.gain.value = 1;
+        gainNode.gain.setTargetAtTime(1, audioCtx.currentTime, 0.01);
     };
 
     const gainOff = () => {
-        gainNode.gain.value = 0;
+        gainNode.gain.setTargetAtTime(0, audioCtx.currentTime, 0.015);
     };
 
     startPlaying.set(gainOn);
