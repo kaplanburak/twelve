@@ -6,33 +6,21 @@ startPlaying.subscribe(val => {
 });
 
 let _stopPlaying;
-startPlaying.subscribe(val => {
+stopPlaying.subscribe(val => {
     _stopPlaying = val;
 });
 
 export const AudioHelper = {
     playSequence: freqs => {
-        // start playing freq[0]
-        // continue playing freq[0]
-        // stop playing [0]
-        // start playing freq[1]
-        // ...
+        freqs.forEach((freq, i) => {
+            setTimeout(() => {
+                playForAWhile(freq, i === freqs.length);
+            }, i * 450);
+        });
 
-        // TODO complete this function
-
-        console.log("playSequence ", freqs);
-
-        // freqs.forEach((freq, i) => {
-        //     setTimeout(() => {
-        //         playForAWhile(freq);
-        //     }, i * 1500);
-        // });
-
-        const playForAWhile = freq => {
+        const playForAWhile = (freq, long) => {
             _startPlaying(freq);
-            setTimeout(_stopPlaying, 1000);
+            setTimeout(_stopPlaying, long ? 2000 : 350);
         };
-
-        playForAWhile(freqs[0]);
     },
 };
