@@ -80,4 +80,8 @@ module.exports = {
         }),
     ],
     devtool: prod ? false : "source-map",
+    devServer: {
+        port: 3000,
+        host: "0.0.0.0",
+    },
 };

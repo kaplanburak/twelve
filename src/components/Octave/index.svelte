@@ -1,6 +1,6 @@
 <script>
     import { NoteHelper } from "@Helpers";
-    import { ctx, currentTwelve } from "@Store";
+    import { ctx, currentTwelve, startPlaying, stopPlaying } from "@Store";
 </script>
 
 <style lang="scss">
@@ -16,7 +16,10 @@
                     <div
                         class="note {(index === 0 || index === 12) && 'octave-note'}
                         {!tone.isOpen && 'disabled'}">
-                        <div class="note__label">
+                        <div
+                            class="note__label"
+                            on:mousedown={() => $startPlaying(tone.freq)}
+                            on:mouseup={$stopPlaying}>
                             <div class="note__label__freq">{tone.freq}Hz</div>
                             <div class="note__label__key">{tone.key}</div>
                         </div>

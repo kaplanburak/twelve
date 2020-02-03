@@ -22,7 +22,9 @@ export const NoteHelper = {
         ],
     },
     getTwelveNotes: (tonic, tonicPitch, scale) => {
-        const keys = Object.keys(NoteHelper.notes);
+        const notes = NoteHelper.notes;
+
+        const keys = Object.keys(notes);
         const indexOfTonic = keys.indexOf(tonic);
 
         const keysHead = keys.slice(indexOfTonic, keys.length);
