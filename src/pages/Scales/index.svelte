@@ -16,18 +16,18 @@
     const scales = NoteHelper.scales.diatonic;
     const keys = Object.keys(NoteHelper.notes);
 
-    const handleSelectScale = e => {
+    const handleSelectScale = (e) => {
         const i = parseInt(e.target.value, 10);
         selectedScale.set(scales[i].notes);
         setTwelveNotes();
     };
 
-    const handleSelectKey = e => {
+    const handleSelectKey = (e) => {
         currentKey.set(e.target.value);
         setTwelveNotes();
     };
 
-    const handleSelectPitch = e => {
+    const handleSelectPitch = (e) => {
         const pitch = parseInt(e.target.value, 10);
         currentPitch.set(pitch);
         setTwelveNotes();
@@ -44,18 +44,17 @@
 
     const playSelectedScale = () => {
         const scaleUpDown = NoteHelper.getScaleUpAndDown($selectedScale);
-        const freqs = scaleUpDown.map(i => $currentTwelve[i].freq);
+        const freqs = scaleUpDown.map((i) => $currentTwelve[i].freq);
         AudioHelper.playSequence(freqs);
     };
 
     onMount(() => {
-        console.log("scales page mounted");
+        selectedScale.set(scales[0].notes);
         setTwelveNotes();
     });
 </script>
 
 <style src="./style.scss">
-
 </style>
 
 <div class="page">
@@ -77,9 +76,13 @@
             {/each}
         </select>
         <select on:change={handleSelectScale}>
-            <option value={null} disabled selected>Diatonic Scales</option>
+            <option value={null} disabled>Diatonic Scales</option>
             {#each scales as scale}
-                <option value={scales.indexOf(scale)}>{scale.name}</option>
+                <option
+                    value={scales.indexOf(scale)}
+                    selected={!scales.indexOf(scale)}>
+                    {scale.name}
+                </option>
             {/each}
         </select>
         <div
